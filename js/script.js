@@ -58,27 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-/********************************************************************************** */
-/*   document.addEventListener("DOMContentLoaded", () => {
-    const menuItems = document.querySelectorAll(".navigation ul li");
-    const icons = document.querySelectorAll(".right-icons .icon");
-
-    menuItems.forEach(item => {
-      item.addEventListener("click", () => {
-        // Supprimer la classe active de tous les éléments
-        menuItems.forEach(el => el.classList.remove("active"));
-        icons.forEach(icon => icon.classList.remove("active"));
-
-        // Ajouter la classe active à l'élément cliqué
-        item.classList.add("active");
-
-        // Activer l'icône correspondante
-        const iconId = item.getAttribute("data-icon");
-        document.getElementById(iconId).classList.add("active");
-      });
-    });
-  }); */
-  
 
   /************************************************************************* */
 
@@ -100,3 +79,47 @@ window.addEventListener('click', (event) => {
     modal.style.display = 'none';
   }
 });
+
+/**************************************************************************************** */
+
+document.getElementById('contact-form').addEventListener('submit', function (event) {
+  event.preventDefault(); // Empêcher l'envoi réel du formulaire
+  
+  const firstName = document.getElementById('first-name').value.trim();
+  const lastName = document.getElementById('last-name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const formMessage = document.getElementById('formMessage');
+  
+  // Réinitialiser les messages
+  formMessage.className = 'hidden';
+  
+  // Vérification des champs
+  if (!firstName || !lastName || !email || !message) {
+    formMessage.textContent = 'Tous les champs sont obligatoires.';
+    formMessage.className = 'error';
+    return;
+  }
+  
+  if (!validateEmail(email)) {
+    formMessage.textContent = 'Veuillez entrer une adresse email valide.';
+    formMessage.className = 'error';
+    return;
+  }
+  
+  // Si tout est valide
+  formMessage.textContent = 'Votre message a été envoyé avec succès !';
+  formMessage.className = 'success';
+  
+  // Réinitialiser le formulaire
+  this.reset();
+});
+
+// Fonction de validation de l'email
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+
+
