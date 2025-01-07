@@ -1,48 +1,39 @@
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    
+const form = document.getElementById('contact-form');
+document.getElementById('contact-form').addEventListener('submit', function (event) {
+  event.preventDefault(); // Empêcher l'envoi réel du formulaire
   
-preventDefault(); 
-
-// Empêche l'envoi du formulaire
-       
-const name = document.getElementById('name').value;
-
-const email = document.getElementById('email').value;
-
-const message = document.getElementById('message').value;
-
-
-if (name && email && message) {
-        
-   
-alert("Merci pour votre message, " + name + " !");
-    } 
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const formMessage = document.getElementById('formMessage');
   
-else {
-     
-alert("Veuillez remplir tous les champs.");
-    }
+  // Réinitialiser les messages
+  formMessage.textContent = '';
+  formMessage.className = '';
+  
+  // Vérification des champs
+  if (!name || !email || !message) {
+    formMessage.textContent = 'Tous les champs sont obligatoires.';
+    formMessage.classList.add('error');
+    return;
+  }
+  
+  if (!validateEmail(email)) {
+    formMessage.textContent = 'Veuillez entrer une adresse email valide.';
+    formMessage.classList.add('error');
+    return;
+  }
+  
+  // Si tout est valide
+  formMessage.textContent = 'Votre message a été envoyé avec succès !';
+  formMessage.classList.add('success');
+  
+  // Réinitialiser le formulaire
+  this.reset();
 });
 
-    
-const projectCards = document.querySelectorAll('article');
-
-projectCards.
-
-project
-forEach((card) => {
-
-    card.addEventListener('mouseenter', () => {
-
-    style.transform = 'scale(1.05)';            
-    
-    style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
-        });
-    
-    });
-
-addEventListener('mouseleave', () => {
-        card.style.transform = 'scale(1)';
-        style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.1)';
-    });
-
+// Fonction de validation de l'email
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
