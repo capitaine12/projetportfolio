@@ -733,7 +733,6 @@ img {
 }
 
 .social a .bi{
-  color: var(--color-black);
   transition: fill 0.3s ease;
 }
 
