@@ -732,7 +732,7 @@ img {
   color: #1da1f2; /* Change la couleur à l'hover, ici bleu (vous pouvez ajuster) */
 }
 
-.social a svg{
+.social a .bi{
   color: var(--color-black);
   transition: fill 0.3s ease;
 }
