@@ -719,28 +719,27 @@ img {
   gap: 15px;
 }
 
-.social svg {
+
+.social a {
+  display: inline-block;
+  margin: 0 10px;
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55), color 0.4s ease;
   color: var(--titre-color);
 }
 
-.social a{
-  display: inline-block;
-  text-decoration: none;
-  text-transform: none;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
 .social a:hover {
-  transform: scale(1.2); /* Agrandit légèrement l'icône */
-  color: #1da1f2; /* Change la couleur à l'hover, ici bleu (vous pouvez ajuster) */
+  transform: translateY(-10px); /* Déplace l'icône vers le haut avec un rebond */
+  color: #0026ff; 
 }
 
-.social a .bi{
-  transition: fill 0.3s ease;
+.social a svg {
+  width: 40px;
+  height: 40px;
+  transition: fill 0.9ms ease;
 }
 
 .social a:hover svg {
-  fill: var(--color-jaune); /* Change la couleur de remplissage à l'hover */
+  fill: var(--color-jaune); /* Change la couleur de l'icône avec une teinte personnalisée */
 }
 
 
