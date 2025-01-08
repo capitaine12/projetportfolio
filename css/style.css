@@ -719,6 +719,9 @@ img {
   gap: 15px;
 }
 
+.social svg {
+  color: var(--titre-color);
+}
 
 .social a{
   display: inline-block;
