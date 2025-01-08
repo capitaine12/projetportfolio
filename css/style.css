@@ -724,13 +724,21 @@ img {
   display: inline-block;
   text-decoration: none;
   text-transform: none;
-}
-.social a .bi{
-  color: var(--color-black);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.social a .bi:hover {
-  color: var(--black-hover);
+.social a:hover {
+  transform: scale(1.2); /* Agrandit légèrement l'icône */
+  color: #1da1f2; /* Change la couleur à l'hover, ici bleu (vous pouvez ajuster) */
+}
+
+.social a .bi{
+  color: var(--color-black);
+  transition: fill 0.3s ease;
+}
+
+.social a:hover svg {
+  fill: #ff5733; /* Change la couleur de remplissage à l'hover */
 }
 
 
