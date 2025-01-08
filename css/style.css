@@ -732,13 +732,13 @@ img {
   color: #1da1f2; /* Change la couleur à l'hover, ici bleu (vous pouvez ajuster) */
 }
 
-.social a .bi{
+.social a svg{
   color: var(--color-black);
   transition: fill 0.3s ease;
 }
 
 .social a:hover svg {
-  fill: #ff5733; /* Change la couleur de remplissage à l'hover */
+  fill: var(--color-jaune); /* Change la couleur de remplissage à l'hover */
 }
 
 
